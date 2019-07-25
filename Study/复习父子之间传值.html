@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子传值</title>
+</head>
+<script src="lib/vue/dist/vue.js"></script>
+<body>
+ <div id="app">
+<!--     <com1 v-bind:parentmsg="msg" @func="show"></com1>-->
+     <com1  @func="show" @fson="getmsgforson"></com1>
+ </div>
+<template id="tmp1">
+    <div>
+        <input type="button" @click="sonway"  value="调用">
+<!--        <h1>我是子组件{{parentmsg}}</h1>-->
+        <h1>我是子组件</h1>
+        <input type="button" value="刘邦" @click="forson">
+    </div>
+</template>
+</body>
+<script>
+    // 1,创建一个子组件
+    let com1 = {
+        template:'#tmp1',
+        data(){
+            return{
+                msg:'大风起兮云飞扬'
+            }
+        },
+
+        methods:{
+            sonway(){
+                 this.$emit('func')
+                // alert('ok')
+            },
+            forson(){
+                this.$emit('fson',this.msg)
+            }
+        }
+    }
+    //     props: ['parentmsg']
+    //     // 把父组件传递过来的值的parentmsg属性,先在props数组中定义一下,这样才能使用这个数据
+    // }
+    let vm = new Vue({
+        el: '#app',
+        data:{
+            msg: 'I am your father!',
+            sonmsg: '',
+        },
+        methods:{
+            show(){
+                console.log('父组件的方法')
+                // alert('父组件的方法')
+            },
+            getmsgforson(data){
+                this.sonmsg=data;
+                console.log(this.sonmsg)
+            }
+        },
+        components:{
+            com1
+        }
+    })
+</script>
+</html>

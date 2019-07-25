@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由参数</title>
+</head>
+<script src="lib/vue/dist/vue.js"></script>
+<script src="lib/vue-router/dist/vue-router.js"></script>
+<body>
+<div id="app">
+    <router-link to="/login?id=10">登录</router-link>
+    <router-link to="/register">注册</router-link>
+
+    <router-view></router-view>
+</div>
+
+<script>
+    // 定义两个组件
+    let login = {
+        template: '<h1>登录组件 {{ $route.query.id}}</h1>'
+    }
+    let register = {
+        template: '<h1>注册组件</h1>'
+    }
+    // 构造路由
+    let router = new VueRouter ({
+        // 定义路由匹配规则
+    routes: [
+        { path: '/login/:id/:name', component: login},
+        {path: '/register', component: register}
+    ]
+    })
+    let vm = new Vue(
+        {
+            el: '#app',
+            data:{},
+            components: {
+                login, register
+            },
+         router
+        }
+    )
+</script>
+</body>
+</html>

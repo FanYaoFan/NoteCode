@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由</title>
+</head>
+<script src="lib/vue/dist/vue.js"></script>
+<script src="lib/vue-router/dist/vue-router.js"></script>
+<style>
+    .v-enter,
+    .v-leave-to {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    .v-enter-active,
+    .v-leave-active{
+        opacity: 1;
+        transition: all 0.3s ease;
+    }
+</style>
+<body>
+<div id="app">
+    <router-link to="/login" tag="span">登录</router-link>
+    <router-link to="/register">注册</router-link>
+
+   <transition mode="out-in">
+       <router-view></router-view>
+   </transition>
+
+</div>
+<script>
+
+    let login = {
+        template : '<h1>登录组件</h1>'
+    };
+    let register = {
+        template: '<h1>注册组件</h1>'
+    }
+
+    let routerObj = new VueRouter({
+        // routes: 这个配置对象中的route表示路由匹配规则
+        routes: [
+            // 路由匹配规则:
+            // 必须有两个必须的属性
+            /* 1 path : 表示监听 哪个路由地址\
+            *  2 component: 表示 如果是路由前面匹配到的path,则展示component属性对应的那个组件**/
+            {path: '/' , redirect: '/login'},
+            { path: '/login', component: login} ,/*这里组件必须放组件的模板名称,不能放组件名*/
+            { path: '/register', component:register}
+            ],
+        linkActiveClass: 'myactive'},
+
+      )
+    let vm = new Vue ( {
+        el: '#app',
+        data: {},
+        methods: {},
+        router: routerObj /* 将路由规则对象注册到vm实例上,用来监听url的变化,然后展示对应的组件*/
+    })
+</script>
+</body>
+</html>

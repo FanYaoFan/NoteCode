@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-render</title>
+</head>
+<script src="lib/vue/dist/vue.js"></script>
+<body>
+   
+</body>
+   <div id="app">
+     <inp></inp>
+   </div>
+    <template id="temp1">
+      <div>
+          <input type="text" v-model='n'>
+          <button value='n' @click='Fincrease'>+1</button>
+          <button value="n" @click='Freduce'>-1</button>
+      </div>
+    </template>
+<script> 
+//   创建组件方式
+ let inp = { template:'#temp1',
+    data:function(){
+        return { n: ''} 
+    },
+   methods:{ 
+       Fincrease(){ n = this.n++;
+    
+    console.log(n)},
+       Freduce(){ n = this.n--}
+   } 
+}
+let vm = new Vue({
+    el: '#app',
+    data: {},
+    methods: {},
+    components: {
+      inp
+    }
+});
+ 
+
+
+</script>
+   
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch监听</title>
+</head>
+<script src="lib/vue/dist/vue.js"></script>
+<body>
+   <div id="app">
+       <input type="text" v-model="firstname">+
+       <input type="text" v-model="lastname">=
+       <input type="text" v-model="fullname">
+   </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            firstname:'',
+            lastname:'',
+            fullname:''
+        },
+        methods: {},
+        watch :{
+            "firstname" : function () {
+                
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+<script src="lib/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+    <p>{{ msg | msgFormat('帅气')}}</p>
+
+</div>
+<script>
+    Vue.filter('msgFormat',function (msg,arg) {
+        //字符串的replace方法,第一个参数除了写字符串之外,还可以定义一个正则
+        return msg.replace( /单纯/g,'arg')
+    } )
+    let vm = new Vue({
+        el: '#app',
+        data:{
+            msg: '曾经,我是个单纯的少年'
+        }
+        }
+
+    )
+</script>
+</body>
+</html>

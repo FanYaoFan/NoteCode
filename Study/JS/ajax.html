@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>asynch JS XML</title>
+</head>
+<body> 
+
+    <button id="ajaxbutton">AJAX请求</button>
+    <script>
+    document.querySelector('button').onclick = function(){
+        //创建 异步对象
+        var xhr = new XMLHttpRequest();
+
+        // 请求行:
+        xhr.open('GET','xxx.php');
+
+        // 请求头 
+        xhr.setRequestHeader('DDDDD');
+        xhr.send(null);
+    }
+    </script>
+</body>
+</html>

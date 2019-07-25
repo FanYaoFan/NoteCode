@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<script src="lib/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+    <com2 :parentmsg="msg" @func="show"></com2>
+<!--    //父组件向子组件传递方法-->
+</div>
+       <template id="tmp1">
+           <div>
+               <h1>这是子组件{{parentmsg}}</h1>
+               <input type="button" value="调用父组件" @click="myclick" >
+           </div>
+       </template>
+
+<script>
+    var com2 ={
+    template: '#tmp1',
+    methods:{
+        myclick(){
+            // alert('ok')
+            this.$emit( 'func')
+        }
+    },
+        props: [ 'parentmsg']
+}
+/*这就是父组件*/
+    let vm = new    Vue(
+        {
+            el:'#app',
+            data:{},
+            methods:{
+                show(){
+                    console.log('调用了父组件的show方法')
+                }
+            },
+
+            //创建一个子组件
+            components: {
+                com2
+                },
+
+            }
+    )
+
+
+</script>
+</body>
+</html>

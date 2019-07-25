@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="/lib/vue/dist/vue.js"></script>
+<body> 
+    <div id="app">
+        <v-table></v-table>
+    </div>
+</body>
+<script>
+     var app = new Vue( {
+         el: '#app'
+     })
+    Vue.component( 'vTable',{
+       props: {
+           columns: {
+               type: Array,
+               default: function(){
+                   return [];
+               }
+           }
+       },
+       data: { 
+           type:Array,
+           default: function(){ 
+               return [];
+           }
+       }
+   
+    })
+//     为了让排序后的columns 和data 不影响原始数据，给v-table 组件的data 选项添加两个对应的
+// 数据，组件所有的操作将在这两个数据上完成，不对原始数据做任何处理：
+
+</script>
+</html>
