@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="lib/vue/dist/vue.js"></script>
+
+<body>
+    <div id="app">
+       <h1 id="h1">{{msg}}</h1>
+       <input type="button" value='修改' @click="msg='NO'">
+    </div>
+    <script>
+        let  vm = new Vue({
+            el: '#app',
+            data: {
+                count : 1,
+                msg: 'hello vue'
+               
+            },
+            methods: {
+                show(){
+                    console.log( 'show方法')
+                },
+            },
+            //1.  组件创建阶段
+            beforeCreate() {
+                // 第一个生命周期函数 还没有初始化好data属性和methods属性
+                console.log(this.msg)  // undefined
+                this.show()
+            },
+            created() {
+                console.log(this.msg)
+                this.show()
+            },
+            beforeMount() {
+                // 模板已经编译完成,但是还没有挂载到页面上  
+                console.log(document.getElementById('h1'))
+            },
+            mounted() {
+                //   console.log(document.getElementById('h1'))
+                // 如果想要操作页面上的DOM节点,比如页面高度,盒子高度
+                // 在mounted里面进行操作
+                // let  Height = document.body.clientHeight
+                // document.getElementById('h1').style.height = 200 + 'px'
+            },
+            // 2. 组件运行阶段
+            // beforeupdate和updated 会根据data数据的改变发生改变
+            beforeUpdate(){
+                // 表示我们的界面没有更新,但数据肯定更新了
+                // 如何观察组件运行阶段呢 
+                // 思路: 当数据 更新时看页面是否同步更新
+                console.log( '页面上的内容' + document.getElementById('h1').innerText)
+                console.log('data中的数据' + this.msg)
+            },
+            updated(){
+                // 实例更新完毕之后调用此函数,
+                // 此时data状态值和界面上显示的数据都是新的.(页面已经重新渲染过了)
+                // 最新的内存DOM树重新渲染到页面中
+                数据从Model层 => 视图层
+                console.log( '页面上的内容' + document.getElementById('h1').innerText)
+                console.log('data中的数据' + this.msg)
+            },
+            // 3. 组价销毁期间
+            beforeDestroy() {
+                // 实例销毁之前调用,在这一步,实例仍然完全可用
+            },
+            destroyed() {
+                vue实例销毁后被调用,调用后,
+                vue实例指示的所有东西都会解绑,所有的事件监听器都会被移除,
+                所有的子实例也会被销毁
+            },
+            
+
+
+        })
+
+    </script>
+</body>
+
+</html>
