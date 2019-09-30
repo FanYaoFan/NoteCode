@@ -44,9 +44,8 @@
 实例销毁之前调用,在这一步,实例仍然完全可用
 #### 1.4.2 destroyed  
  vue实例销毁后被调用,调用后,vue实例指示的所有东西都会解绑,所有的事件监听器都会被移除,所有的子实例也会被销毁
-
+ ***
 ## 2 组件
-[组件code]()
 ### 2.1 组件传值
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/effector.png"></img>
 #### 2.1.1 父组件向子组件传值  
