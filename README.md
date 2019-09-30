@@ -24,7 +24,7 @@
   }
   ***
 ### 1.3 运行期间的生命周期函数
-<img src="https://github.com/FanYaoFan/Vue/blob/master/img/vue2.png"></img>
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/vue2.png" height="350"></img>
 #### 1.3.1 beforeUpdate
 状态更新之前执行此函数,此时data中的状态值是最新的,但是界面上显示的数据还是旧的(还没有进行重新渲染DOM节点) 
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/beforeUpdate.png"></img>
