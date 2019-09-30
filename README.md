@@ -3,6 +3,7 @@
 生命周期函数=钩子函数   
 ### 1.1 什么是生命周期
 从Vue实例创建,运行,销毁期间,总是伴随着各种各样的事件.这些事件统称为生命周期  
+[生命周期code](https://github.com/FanYaoFan/Vue/blob/master/Vue/lifecircle.html)
 ### 1.2 创建期间的生命周期函数 
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/vue1.png" height="350"></img>     
 #### 1.2.1 beforeCreate
@@ -43,19 +44,22 @@
 实例销毁之前调用,在这一步,实例仍然完全可用
 #### 1.4.2 destroyed  
  vue实例销毁后被调用,调用后,vue实例指示的所有东西都会解绑,所有的事件监听器都会被移除,所有的子实例也会被销毁
-
+ ***
 ## 2 组件
 ### 2.1 组件传值
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/effector.png"></img>
 #### 2.1.1 父组件向子组件传值  
 #####  props
 父组件页面,在父组件的眼中,子组件就是一对标签,添加属性 v-bind/: 的方式来声明一个属性  
 `<son :parent = "父组件中的数据/方法"></son>`  
 子组件页面, 声明一个props属性来接收父组件里面的数据和方法  
-`props : [ "parent"]`  在子组件可以以{{parent}}的形式渲染到子组件中,方法则可以通过@click="parent"来直接使用  
+`props : [ "parent"]`  在子组件可以以{{parent}}的形式渲染到子组件中,方法则可以通过@click="parent"来直接使用
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/father.png"></img>
 #### 2.1.2 子组件向父组件传值  
 ##### this.$emit('fn',value)  
 子组件页面中,子组件在方法中自定义一个方法,(可传参)
 `<input type="button" @click="add()">`在add()中通过this.$emit("fnjia")的方式来自定义一个函数  
-父组件页面中,子组件标签中通过 `<son @fnjia="numChange父组件的方法"></son>`在父组件的methods中的numChange()方法中通过this.count=count来接收子组件里的方法.当增加和减少改变的值都是一个可以指向同一函数来执行接收数据. 具体可见图片  
+父组件页面中,子组件标签中通过 `<son @fnjia="numChange父组件的方法"></son>`在父组件的methods中的numChange()方法中通过this.count=count来接收子组件里的方法.当增加和减少改变的值都是一个可以指向同一函数来执行接收数据. 具体可见图片 
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/father.png"></img>
 ***  
 
