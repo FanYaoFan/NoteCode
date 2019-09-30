@@ -4,7 +4,7 @@
 ### 1.1 什么是生命周期
 从Vue实例创建,运行,销毁期间,总是伴随着各种各样的事件.这些事件统称为生命周期  
 #### 创建期间的生命周期函数 
-<img src="https://github.com/FanYaoFan/Vue/blob/master/img/vue1.png" height="350">   
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/vue1.png" height="350"></img>     
 ##### beforeCreate
 实例刚在内存中被创建出来,此时,还没有初始化好data属性和methods属性
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/beforeCreate.png" width="400" height="350">  
