@@ -3,6 +3,7 @@
 生命周期函数=钩子函数   
 ### 1.1 什么是生命周期
 从Vue实例创建,运行,销毁期间,总是伴随着各种各样的事件.这些事件统称为生命周期  
+[生命周期code](https://github.com/FanYaoFan/Vue/blob/master/Vue/lifecircle.html)
 ### 1.2 创建期间的生命周期函数 
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/vue1.png" height="350"></img>     
 #### 1.2.1 beforeCreate
@@ -45,6 +46,7 @@
  vue实例销毁后被调用,调用后,vue实例指示的所有东西都会解绑,所有的事件监听器都会被移除,所有的子实例也会被销毁
 
 ## 2 组件
+[组件code]()
 ### 2.1 组件传值
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/effector.png"></img>
 #### 2.1.1 父组件向子组件传值  
