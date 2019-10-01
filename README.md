@@ -2,8 +2,8 @@
 ***
 # 目录  
 ## [1  生命周期](#1-生命周期)  
-## [2 组件](#2-组件)
-## [3 Vuex](#3-vuex)
+## [2 组件](#2-组件-1)
+## [3 Vuex](#3-vuex-1)
 ***
 ___
 ## 1 生命周期 
@@ -156,13 +156,13 @@ ___
 ### 3.5 modules 
 当应用变的非常臃肿时,需要将store分割成模块,每个模块拥有自己的state,getters,mutations,actions.
 ### 3.6 实例图解
-<img src="https://github.com/FanYaoFan/Vue/blob/master/img/analyse.png"></
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/analyse.png"></img>  
 3.6.1 store.js
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/store.png"></img>
-#### 3.6.2  父组件app.vue 
+#### 3.6.2  父组件 app.vue 
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/fu.png"></img>
-#### 3.6.3  子组件son.vue
-<img src="https://github.com/FanYaoFan/Vue/blob/master/img/zi.png"></
+#### 3.6.3  子组件 son.vue
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/zi.png"></img>
 
 	
 
