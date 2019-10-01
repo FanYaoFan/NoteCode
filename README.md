@@ -76,20 +76,22 @@ ___
 `let [x,y] [ 1, 4]` //=> x=1,y=4  
 `let x = 1, y =4 [x,y]=[y,x]` x,y的值互换 x=4,y=1  
 * 对象  
-     const person = {
-      firstName: firstName,
-      lastName: lastName,
-     }
-     const person = {
-       firstName: 'Stephen',
-       lastName: 'Curry',}
-     const {firstName, lastName} = person;		
+      `const person = {`
+     ` firstName: firstName,`
+     ` lastName: lastName,`
+   `  }`
+  `   const person = {`
+      ` firstName: 'Stephen',`
+       `lastName: 'Curry',}`
+     `const {firstName, lastName} = person;`		
 2. 对象展开运算符
 * 数组 :  
 `let ary1 = [1,2,3]` `let ary2 = [0, ...ary1,5,6,7]`//=> ary2 = [0,1,2,3,5,6,7]  
 * 对象:
 `let obj1 = {a:1,b:2}`  
 `let obj2 = {...obj1,f:5}` //=> { a:1,b:2,f:5} 
+## 图例 
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/vuex1.png"></img>
 ### 3.1 state  
 #### 单一状态树   
 Vuex 使用单一状态树——用一个对象就包含了全部的应用层级状态。至此它便作为一个“唯一数据源”而存在。这也意味着，每个应用将仅仅包含一个 store 实例。单一状态树让我们能够直接地定位任一特定的状态片段，在调试的过程中也能轻易地取得整个当前应用状态的快照。  
@@ -106,6 +108,7 @@ eg `ageSelect(state){return state.students.filter ( s => s.age > 20 )}`or
 __传递参数__ 
 getters默认是不能传递参数的,如果需要传参,让getters本身返回一个另一个函数   
 根据id获取用户信息  如图 
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/getters.png"></img>
 ___ 
 ### 3.3 mutations 
 store状态更新的唯一方式 : 提交mutations (同步操作时),一系列的逻辑操作都在这里
@@ -135,7 +138,8 @@ __页面中调用共享数据__
 `<button @click = 'add(5)'>+5</button>`  
 ___
 ### 3.4 Actios  
-相当于把mutations,把异步操作放到antions里,比如网络请求,为什么用action,如果异步操作直接调用mutations,devtools无法监听state值的改变,不利于寻找出错点  
+相当于把mutations,把异步操作放到antions里,比如网络请求,为什么用action,如果异步操作直接调用mutations,devtools无法监听state值的改变,不利于寻找出错点
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/flow.png"></img>
 在actions调用mutations里面的方法
     actions: {    
     increment (context) {  
