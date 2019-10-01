@@ -90,6 +90,9 @@ ___
 * 对象:
 `let obj1 = {a:1,b:2}`  
 `let obj2 = {...obj1,f:5}` //=> { a:1,b:2,f:5} 
+3. devtools工具  
+
+
 ## 图例 
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/vuex1.png"></img>
 ### 3.1 state  
