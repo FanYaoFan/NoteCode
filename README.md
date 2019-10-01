@@ -100,6 +100,7 @@ Vuex 使用单一状态树——用一个对象就包含了全部的应用层级
 	 state : {count : 1}})`  
 __页面中调用共享数据__  
 `<span>{{$store.state.counts}}</span>`  
+
 ___
 ### 3.2 getters 
 类似于computed属性,属于store的计算属性.getters接受 state 作为其第一个参数  
@@ -122,6 +123,7 @@ Vuex 中的 mutation 非常类似于事件：
 `fn(){ this.$store.commit('add')}`
 #### 3.3.2 传递参数 
 mutations中参数被称为payload
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/payload.png"></
 `add(state,n){state.count += n}`  
 在使用页面中 `chuancan(){this.$store.commit( 'add', 5)}`  
 如果有多个参数需要传递,这个时候我们通常会以对象的形式传递(payload = 对象),然后再从对象中取得相关信息  
@@ -153,6 +155,14 @@ ___
 2. 在组件中通过this.$store.dispatch分发`this.$store.dispatch('actonsFn', '携带信息')`
 ### 3.5 modules 
 当应用变的非常臃肿时,需要将store分割成模块,每个模块拥有自己的state,getters,mutations,actions.
+### 3.6 实例图解
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/analyse.png"></
+3.6.1 store.js
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/store.png"></img>
+#### 3.6.2  父组件app.vue 
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/fu.png"></img>
+#### 3.6.3  子组件son.vue
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/zi.png"></
 
 	
 
