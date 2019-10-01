@@ -89,12 +89,12 @@ ___
 `let ary1 = [1,2,3]` `let ary2 = [0, ...ary1,5,6,7]`//=> ary2 = [0,1,2,3,5,6,7]  
 * 对象:
 `let obj1 = {a:1,b:2}`  
-`let obj2 = {...obj1,f:5}` //=> { a:1,b:2,f:5} 
-3. devtools工具    
- 1. 安装 谷歌扩展程序  
+`let obj2 = {...obj1,f:5}` //=> { a:1,b:2,f:5}   
+3. devtools工具  
+- 1. 安装 谷歌扩展程序  
  <img src="https://github.com/FanYaoFan/Vue/blob/master/img/devtools.png"></img>
  ___
- 2. 使用   
+- 2. 使用   
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/dev2.png"></img>  
 ***
 ## 图例 
