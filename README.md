@@ -91,11 +91,12 @@ ___
 `let obj1 = {a:1,b:2}`  
 `let obj2 = {...obj1,f:5}` //=> { a:1,b:2,f:5} 
 3. devtools工具  
-1. 安装 谷歌扩展程序
-<img src="https://github.com/FanYaoFan/Vue/blob/master/img/devtools.png"></img>
-2. 使用 
-<img src="https://github.com/FanYaoFan/Vue/blob/master/img/dev2.png"></img>
-
+1. 安装 谷歌扩展程序  
+ <img src="https://github.com/FanYaoFan/Vue/blob/master/img/devtools.png"></img>
+ ___
+2. 使用   
+<img src="https://github.com/FanYaoFan/Vue/blob/master/img/dev2.png"></img>  
+***
 ## 图例 
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/vuex1.png"></img>
 ### 3.1 state  
