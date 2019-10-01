@@ -62,4 +62,88 @@
 父组件页面中,子组件标签中通过 `<son @fnjia="numChange父组件的方法"></son>`在父组件的methods中的numChange()方法中通过this.count=count来接收子组件里的方法.当增加和减少改变的值都是一个可以指向同一函数来执行接收数据. 具体可见图片 
 <img src="https://github.com/FanYaoFan/Vue/blob/master/img/father.png"></img>
 ***  
+## 3 Vuex
+了解  
+1. 解构赋值
+*数组  
+`let [x,y] [ 1, 4]` //=> x=1,y=4  
+`let x = 1, y =4 [x,y]=[y,x]` x,y的值互换 x=4,y=1  
+* 对象  
+     const person = {
+      firstName: firstName,
+      lastName: lastName,
+     }
+     const person = {
+       firstName: 'Stephen',
+       lastName: 'Curry',}
+     const {firstName, lastName} = person;		
+2. 对象展开运算符
+* 数组 :  
+`let ary1 = [1,2,3]` `let ary2 = [0, ...ary1,5,6,7]`//=> ary2 = [0,1,2,3,5,6,7]  
+* 对象:
+`let obj1 = {a:1,b:2}`  
+`let obj2 = {...obj1,f:5}` //=> { a:1,b:2,f:5} 
+### 3.1 state  
+#### 单一状态树   
+Vuex 使用单一状态树——用一个对象就包含了全部的应用层级状态。至此它便作为一个“唯一数据源”而存在。这也意味着，每个应用将仅仅包含一个 store 实例。单一状态树让我们能够直接地定位任一特定的状态片段，在调试的过程中也能轻易地取得整个当前应用状态的快照。  
+将共享的数据写在这.  
+	`const store = new Vuex.Store({
+	 state : {count : 1}})`  
+__页面中调用共享数据__  
+`<span>{{$store.state.counts}}</span>`  
+___
+### 3.2 getters 
+类似于computed属性,属于store的计算属性.getters接受 state 作为其第一个参数  
+eg `ageSelect(state){return state.students.filter ( s => s.age > 20 )}`or  
+`squareCount(state){ return state.count * state.count}`  
+__传递参数__ 
+getters默认是不能传递参数的,如果需要传参,让getters本身返回一个另一个函数   
+根据id获取用户信息  如图 
+___ 
+### 3.3 mutations 
+store状态更新的唯一方式 : 提交mutations (同步操作时),一系列的逻辑操作都在这里
+#### 3.3.1  
+Vuex 中的 mutation 非常类似于事件：  
+1. 每个 mutation 都有一个字符串的 事件类型 (type)   
+2. 一个 回调函数 (handler)。这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数
+3. 定义方式:
+`mutations : { add(state){state.count++}}`
+通过mutations更新  
+`fn(){ this.$store.commit('add')}`
+#### 3.3.2 传递参数 
+mutations中参数被称为payload
+`add(state,n){state.count += n}`  
+在使用页面中 `chuancan(){this.$store.commit( 'add', 5)}`  
+如果有多个参数需要传递,这个时候我们通常会以对象的形式传递(payload = 对象),然后再从对象中取得相关信息  
+     mutations: {  
+      increment (state, payload) {  
+      state.count += payload.amount  
+     }
+    }
+changecount(){ this.$store.commit ( 'increament', { count : 0})}  
+**提交方式**  
+vue还提供了另外一种风格,它是一个包含了type属性的对象 
+    this.$store.commit({ type : 'add', count : 100})  
+__页面中调用共享数据__   
+`<button @click = 'add(5)'>+5</button>`  
+___
+### 3.4 Actios  
+相当于把mutations,把异步操作放到antions里,比如网络请求,为什么用action,如果异步操作直接调用mutations,devtools无法监听state值的改变,不利于寻找出错点  
+在actions调用mutations里面的方法
+    actions: {    
+    increment (context) {  
+      context.commit('increment')     
+     }
+    }  
+或者
+**分发 Action**
+在组件中Action 通过 store.dispatch 方法触发  
+`this.$store.dispatch(‘mutations.fn’)`   
+总结: 
+1. 在actions里的异步操作(方法)要执行的(nutations)方法通过context.commit提交给mutations中.
+2. 在组件中通过this.$store.dispatch分发`this.$store.dispatch('actonsFn', '携带信息')`
+### 3.5 modules 
+当应用变的非常臃肿时,需要将store分割成模块,每个模块拥有自己的state,getters,mutations,actions.
+
+	
 
