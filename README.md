@@ -146,11 +146,11 @@ mutations中参数被称为payload
 `add(state,n){state.count += n}`  
 在使用页面中 `chuancan(){this.$store.commit( 'add', 5)}`  
 如果有多个参数需要传递,这个时候我们通常会以对象的形式传递(payload = 对象),然后再从对象中取得相关信息  
-```JavaScript  	
+```JavaScript   
      mutations: {  
       increment (state, payload) { 
       tate.count += payload.amount }}  
-changecount(){ this.$store.commit ( 'increament', { count : 0})} 
+changecount(){ this.$store.commit ( 'increament', { count : 0})}   
 ```
 **提交方式**  
 vue还提供了另外一种风格,它是一个包含了type属性的对象 
@@ -159,7 +159,7 @@ vue还提供了另外一种风格,它是一个包含了type属性的对象
    ```
 __页面中调用共享数据/方法__   
 ```JavaScript 
-<button @click = 'add(5)'>+5</button>
+<button @click = 'add(5)'>+5</button>  
 ```  
 ___
 ### 3.4 Actios  
